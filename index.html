@@ -984,7 +984,7 @@ function renderAccount(){
           }
 
         </div>
-
+<button class="red" style="margin-top:8px;padding:8px 12px;font-size:14px" onclick="deleteEntry('${e.id}')">🗑 حذف</button>
       </div>
 
     `).join("")
@@ -1066,6 +1066,16 @@ function addEntry(type){
 
   renderAccount();
 
+}function deleteEntry(id){
+  const t = db.traders.find(x => x.id === currentTrader);
+  if(!t) return;
+
+  if(!confirm("متأكد بدك تحذف هذه الحركة؟")) return;
+
+  t.entries = (t.entries || []).filter(e => e.id !== id);
+
+  save();
+  renderAccount();
 }
 
 
