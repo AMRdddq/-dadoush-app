@@ -1,0 +1,10 @@
+{
+  "name": "دعدوش",
+  "short_name": "دعدوش",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#2d447d",
+  "lang": "ar",
+  "dir": "rtl"
+}
