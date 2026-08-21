@@ -1,217 +1,240 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#243A70">
-  <link rel="manifest" href="manifest.json">
-  <title>دعدوش</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#243A70">
+<link rel="manifest" href="manifest.json">
+<title>دعدوش</title>
 
-  <style>
-    :root{
-      --navy:#243A70;
-      --bg:#f5f7fb;
-      --text:#17213b;
-      --muted:#7a8499;
-      --green:#16845f;
-      --red:#c4473f;
-      --line:#e4e8f0;
-    }
+<style>
+:root{
+  --navy:#243A70;
+  --bg:#f5f7fb;
+  --text:#17213b;
+  --muted:#7a8499;
+  --green:#16845f;
+  --red:#c4473f;
+  --line:#e4e8f0;
+  --amber:#a66a00;
+}
 
-    *{box-sizing:border-box}
+*{box-sizing:border-box}
 
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-    }
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 
-    header{
-      background:var(--navy);
-      color:#fff;
-      padding:22px 16px 18px;
-    }
+header{
+  background:var(--navy);
+  color:#fff;
+  padding:22px 16px 18px;
+}
 
-    .wrap{
-      max-width:680px;
-      margin:auto;
-    }
+.wrap,main{
+  max-width:680px;
+  margin:auto;
+}
 
-    h1{
-      margin:0;
-      font-size:28px;
-    }
+h1{
+  margin:0;
+  font-size:28px;
+}
 
-    .sub{
-      opacity:.82;
-      font-size:13px;
-      margin-top:4px;
-    }
+.sub{
+  opacity:.82;
+  font-size:13px;
+  margin-top:4px;
+}
 
-    main{
-      max-width:680px;
-      margin:auto;
-      padding:14px 14px 90px;
-    }
+main{
+  padding:14px 14px 95px;
+}
 
-    .stats{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-      margin-bottom:12px;
-    }
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:12px;
+}
 
-    .stat,.card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      box-shadow:0 4px 16px rgba(25,38,70,.05);
-    }
+.stat,.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:0 4px 16px rgba(25,38,70,.05);
+}
 
-    .stat{
-      padding:14px;
-    }
+.stat{
+  padding:14px;
+}
 
-    .stat small{
-      color:var(--muted);
-    }
+.stat small{
+  color:var(--muted);
+}
 
-    .stat b{
-      display:block;
-      font-size:22px;
-      margin-top:4px;
-    }
+.stat b{
+  display:block;
+  font-size:21px;
+  margin-top:4px;
+}
 
-    .card{
-      padding:14px;
-      margin-bottom:12px;
-    }
+.card{
+  padding:14px;
+  margin-bottom:12px;
+}
 
-    input,textarea{
-      width:100%;
-      padding:14px;
-      border:1px solid var(--line);
-      border-radius:13px;
-      font-size:17px;
-      background:#fff;
-    }
+input,textarea,select{
+  width:100%;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  font-size:17px;
+  background:#fff;
+  color:var(--text);
+}
 
-    button{
-      border:0;
-      border-radius:13px;
-      padding:14px 15px;
-      font-size:17px;
-      font-weight:800;
-    }
+button{
+  border:0;
+  border-radius:13px;
+  padding:14px 15px;
+  font-size:17px;
+  font-weight:800;
+}
 
-    .primary{background:var(--navy);color:#fff}
-    .green{background:var(--green);color:#fff}
-    .red{background:var(--red);color:#fff}
-    .light{background:#eef1f7;color:var(--navy)}
+.primary{background:var(--navy);color:#fff}
+.green{background:var(--green);color:#fff}
+.red{background:var(--red);color:#fff}
+.light{background:#eef1f7;color:var(--navy)}
 
-    .full{width:100%}
+.full{width:100%}
 
-    .row{
-      display:flex;
-      gap:8px;
-      align-items:center;
-    }
+.row{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
 
-    .row>*{
-      flex:1;
-    }
+.row>*{flex:1}
 
-    .trader{
-      padding:13px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      margin-top:9px;
-      background:#fff;
-    }
+.hidden{display:none}
 
-    .trader-head{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-    }
+.section-title{
+  font-size:18px;
+  font-weight:900;
+  margin:18px 2px 8px;
+}
 
-    .balance{
-      font-weight:900;
-    }
+.trader{
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  margin-top:9px;
+  background:#fff;
+}
 
-    .muted{
-      color:var(--muted);
-      font-size:13px;
-    }
+.trader-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
 
-    .hidden{
-      display:none;
-    }
+.balance{font-weight:900}
 
-    .screen-title{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      margin-bottom:12px;
-    }
+.muted{
+  color:var(--muted);
+  font-size:13px;
+}
 
-    .screen-title h2{
-      margin:0;
-      font-size:22px;
-    }
+.tag{
+  display:inline-block;
+  font-size:12px;
+  font-weight:800;
+  padding:4px 8px;
+  border-radius:999px;
+  margin-top:6px;
+}
 
-    .big-balance{
-      text-align:center;
-      padding:18px;
-      border-radius:16px;
-      background:#f8f9fc;
-      margin:10px 0 14px;
-    }
+.tag.receive{
+  background:#e9f7f1;
+  color:var(--green);
+}
 
-    .big-balance small{
-      color:var(--muted);
-    }
+.tag.pay{
+  background:#fff0ef;
+  color:var(--red);
+}
 
-    .big-balance b{
-      display:block;
-      font-size:32px;
-      margin-top:4px;
-    }
+.tag.none{
+  background:#fff7e8;
+  color:var(--amber);
+}
 
-    .entry{
-      padding:11px 0;
-      border-bottom:1px solid var(--line);
-    }
+.screen-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
+}
 
-    .entry:last-child{
-      border-bottom:0;
-    }
+.screen-title h2{
+  margin:0;
+  font-size:22px;
+}
 
-    .entry-top{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-    }
+.big-balance{
+  text-align:center;
+  padding:18px;
+  border-radius:16px;
+  background:#f8f9fc;
+  margin:10px 0 14px;
+}
 
-    .fab{
-      position:fixed;
-      left:18px;
-      right:18px;
-      bottom:18px;
-      max-width:644px;
-      margin:auto;
-    }
+.big-balance small{
+  color:var(--muted);
+}
 
-    .debit{
-      color:var(--red);
-    }
+.big-balance b{
+  display:block;
+  font-size:32px;
+  margin-top:4px;
+}
 
-    .credit{
-      color:var(--green);
-    }
-  </style>
+.entry{
+  padding:11px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.entry:last-child{
+  border-bottom:0;
+}
+
+.entry-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.fab{
+  position:fixed;
+  left:18px;
+  right:18px;
+  bottom:18px;
+  max-width:644px;
+  margin:auto;
+}
+
+.notice{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.5;
+  margin-top:8px;
+}
+</style>
 </head>
 
 <body>
@@ -219,144 +242,173 @@
 <header>
   <div class="wrap">
     <h1>دعدوش</h1>
-    <div class="sub">حسابات التجار — مدين ودائن</div>
+    <div class="sub">حسابات ودفعات التجار</div>
   </div>
 </header>
 
 <main>
 
-  <section id="homeScreen">
+<section id="homeScreen">
 
-    <div class="stats">
-      <div class="stat">
-        <small>عدد التجار</small>
-        <b id="traderCount">0</b>
-      </div>
+  <div class="stats">
 
-      <div class="stat">
-        <small>صافي الرصيد</small>
-        <b id="netBalance">0.00 ₪</b>
-      </div>
-
-      <div class="stat">
-        <small>إجمالي المدين</small>
-        <b class="debit" id="totalDebit">0.00 ₪</b>
-      </div>
-
-      <div class="stat">
-        <small>إجمالي الدائن</small>
-        <b class="credit" id="totalCredit">0.00 ₪</b>
-      </div>
+    <div class="stat">
+      <small>عدد التجار إلي عندهم</small>
+      <b id="countReceive">0</b>
     </div>
 
-    <div class="card">
-      <input id="search" placeholder="ابحث عن تاجر..." oninput="renderTraders()">
-      <div id="traderList"></div>
+    <div class="stat">
+      <small>عدد التجار إلهم عندي</small>
+      <b id="countPay">0</b>
     </div>
 
-    <button class="primary full fab" onclick="openAddTrader()">
-      + تاجر جديد
+    <div class="stat">
+      <small>مجموع إلي عند التجار</small>
+      <b id="totalReceive">0.00 ₪</b>
+    </div>
+
+    <div class="stat">
+      <small>مجموع للتجار عندي</small>
+      <b id="totalPay">0.00 ₪</b>
+    </div>
+
+  </div>
+
+  <div class="card">
+    <input id="search" placeholder="ابحث عن تاجر..." oninput="renderTraders()">
+    <div id="traderList"></div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+
+      <button class="light full" onclick="exportBackup()">
+        نسخة احتياطية
+      </button>
+
+      <label class="light full"
+      style="display:flex;align-items:center;justify-content:center;font-weight:800;border-radius:13px;cursor:pointer">
+        استرجاع
+        <input type="file" accept=".json" onchange="importBackup(event)" hidden>
+      </label>
+
+    </div>
+
+    <div class="notice">
+      التجار القدامى رح يظهروا تحت "حدد نوع الحساب" لحد ما تختار:
+      لي عنده أو له عندي.
+    </div>
+  </div>
+
+  <button class="primary full fab" onclick="openAddTrader()">
+    + تاجر جديد
+  </button>
+
+</section>
+
+
+<section id="addTraderScreen" class="hidden">
+
+  <div class="screen-title">
+    <h2>تاجر جديد</h2>
+    <button class="light" onclick="goHome()">رجوع</button>
+  </div>
+
+  <div class="card">
+
+    <input id="newName" placeholder="اسم التاجر">
+
+    <input id="newPhone"
+    style="margin-top:8px"
+    placeholder="رقم الهاتف - اختياري">
+
+    <select id="newType" style="margin-top:8px">
+      <option value="">اختر نوع الحساب</option>
+      <option value="receive">لي عنده — هو بده يدفعلي</option>
+      <option value="pay">له عندي — أنا بدي أدفعله</option>
+    </select>
+
+    <input id="newAmount"
+    type="number"
+    inputmode="decimal"
+    style="margin-top:8px"
+    placeholder="المبلغ الافتتاحي - اختياري">
+
+    <textarea id="newNotes"
+    style="margin-top:8px"
+    rows="3"
+    placeholder="ملاحظات - اختياري"></textarea>
+
+    <button class="primary full"
+    style="margin-top:12px"
+    onclick="saveTrader()">
+      حفظ
     </button>
 
-  </section>
+  </div>
 
-  <section id="addTraderScreen" class="hidden">
+</section>
 
-    <div class="screen-title">
-      <h2>تاجر جديد</h2>
-      <button class="light" onclick="goHome()">رجوع</button>
-    </div>
 
-    <div class="card">
+<section id="accountScreen" class="hidden">
 
-      <input id="newName" placeholder="اسم التاجر">
+  <div class="screen-title">
+    <h2 id="accountName"></h2>
+    <button class="light" onclick="goHome()">رجوع</button>
+  </div>
 
-      <input
-        id="newPhone"
-        style="margin-top:8px"
-        placeholder="رقم الهاتف - اختياري"
-      >
+  <div class="card">
 
-      <textarea
-        id="newNotes"
-        style="margin-top:8px"
-        rows="3"
-        placeholder="ملاحظات - اختياري"
-      ></textarea>
+    <label>نوع الحساب</label>
 
-      <button
-        class="primary full"
-        style="margin-top:12px"
-        onclick="saveTrader()"
-      >
-        حفظ
+    <select id="accountType" onchange="changeType()">
+      <option value="">حدد نوع الحساب</option>
+      <option value="receive">لي عنده — هو بده يدفعلي</option>
+      <option value="pay">له عندي — أنا بدي أدفعله</option>
+    </select>
+
+  </div>
+
+  <div class="big-balance">
+    <small id="balanceLabel">المبلغ المتبقي</small>
+    <b id="accountBalance">0.00 ₪</b>
+  </div>
+
+  <div class="card">
+
+    <input id="amount"
+    type="number"
+    inputmode="decimal"
+    placeholder="اكتب المبلغ">
+
+    <input id="entryDate"
+    type="date"
+    style="margin-top:8px">
+
+    <input id="entryNote"
+    style="margin-top:8px"
+    placeholder="ملاحظة - اختياري">
+
+    <div class="row" style="margin-top:10px">
+
+      <button class="red" onclick="addEntry('charge')">
+        إضافة مبلغ
+      </button>
+
+      <button class="green" onclick="addEntry('payment')">
+        تسجيل دفعة
       </button>
 
     </div>
 
-  </section>
+  </div>
 
-  <section id="accountScreen" class="hidden">
+  <div class="card">
+    <h3 style="margin:0 0 8px">كشف الحساب</h3>
+    <div id="entries"></div>
+  </div>
 
-    <div class="screen-title">
-      <h2 id="accountName"></h2>
-      <button class="light" onclick="goHome()">رجوع</button>
-    </div>
-
-    <div class="big-balance">
-      <small>صافي الرصيد</small>
-      <b id="accountBalance">0.00 ₪</b>
-    </div>
-
-    <div class="stats">
-
-      <div class="stat">
-        <small>إجمالي المدين</small>
-        <b class="debit" id="accountDebit">0.00 ₪</b>
-      </div>
-
-      <div class="stat">
-        <small>إجمالي الدائن</small>
-        <b class="credit" id="accountCredit">0.00 ₪</b>
-      </div>
-
-    </div>
-
-    <div class="card">
-
-      <input
-        id="amount"
-        type="number"
-        inputmode="decimal"
-        placeholder="اكتب المبلغ"
-      >
-
-      <input
-        id="entryNote"
-        style="margin-top:8px"
-        placeholder="ملاحظة - اختياري"
-      >
-
-      <div class="row" style="margin-top:10px">
-
-        <button class="red" onclick="addEntry('debt')">
-          مدين
-        </button>
-
-        <button class="green" onclick="addEntry('payment')">
-          دائن
-        </button>
-
-      </div>
-
-    </div>
-
-    <div class="card">
-      <h3>كشف الحساب</h3>
-      <div id="entries"></div>
-    </div>
-
-  </section>
+</section>
 
 </main>
 
@@ -371,6 +423,7 @@ let db = {
 
 let currentTrader = null;
 
+
 function load(){
 
   try{
@@ -381,9 +434,25 @@ function load(){
       db = JSON.parse(raw);
     }
 
-  }catch(e){}
+    if(!Array.isArray(db.traders)){
+      db.traders = [];
+    }
+
+    if(!Array.isArray(db.entries)){
+      db.entries = [];
+    }
+
+  }catch(e){
+
+    db = {
+      traders: [],
+      entries: []
+    };
+
+  }
 
 }
+
 
 function save(){
 
@@ -394,14 +463,16 @@ function save(){
 
 }
 
+
 function uid(){
 
   return "id_" +
-    Date.now() +
-    "_" +
-    Math.random().toString(36).slice(2);
+  Date.now() +
+  "_" +
+  Math.random().toString(36).slice(2);
 
 }
+
 
 function money(n){
 
@@ -415,40 +486,59 @@ function money(n){
 
 }
 
-function debitTotal(tid){
 
-  return db.entries
-    .filter(e =>
-      (!tid || e.tid === tid) &&
-      e.type === "debt"
-    )
-    .reduce(
-      (s,e) => s + Number(e.amount),
-      0
-    );
+function esc(s){
 
-}
-
-function creditTotal(tid){
-
-  return db.entries
-    .filter(e =>
-      (!tid || e.tid === tid) &&
-      e.type === "payment"
-    )
-    .reduce(
-      (s,e) => s + Number(e.amount),
-      0
-    );
+  return String(s ?? "").replace(
+    /[&<>"']/g,
+    c => ({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#39;"
+    }[c])
+  );
 
 }
 
-function balance(tid){
 
-  return debitTotal(tid) -
-         creditTotal(tid);
+function traderEntries(tid){
+
+  return db.entries.filter(
+    e => e.tid === tid
+  );
 
 }
+
+
+function isCharge(e){
+
+  return (
+    e.type === "charge" ||
+    e.type === "debt"
+  );
+
+}
+
+
+function remaining(tid){
+
+  return traderEntries(tid).reduce(
+    (sum,e) => {
+
+      if(isCharge(e)){
+        return sum + Number(e.amount);
+      }
+
+      return sum - Number(e.amount);
+
+    },
+    0
+  );
+
+}
+
 
 function show(id){
 
@@ -456,8 +546,8 @@ function show(id){
     "homeScreen",
     "addTraderScreen",
     "accountScreen"
-  ].forEach(x =>
-    document
+  ].forEach(
+    x => document
       .getElementById(x)
       .classList
       .add("hidden")
@@ -470,6 +560,16 @@ function show(id){
 
 }
 
+
+function today(){
+
+  return new Date()
+    .toISOString()
+    .slice(0,10);
+
+}
+
+
 function goHome(){
 
   currentTrader = null;
@@ -480,27 +580,38 @@ function goHome(){
 
 }
 
+
 function openAddTrader(){
 
-  document.getElementById("newName").value = "";
-  document.getElementById("newPhone").value = "";
-  document.getElementById("newNotes").value = "";
+  newName.value = "";
+  newPhone.value = "";
+  newType.value = "";
+  newAmount.value = "";
+  newNotes.value = "";
 
   show("addTraderScreen");
 
 }
 
+
 function saveTrader(){
 
   const name =
-    document
-      .getElementById("newName")
-      .value
-      .trim();
+    newName.value.trim();
+
+  const accountType =
+    newType.value;
 
   if(!name){
 
     alert("اكتب اسم التاجر");
+    return;
+
+  }
+
+  if(!accountType){
+
+    alert("اختر نوع الحساب");
     return;
 
   }
@@ -512,16 +623,12 @@ function saveTrader(){
     name:name,
 
     phone:
-      document
-        .getElementById("newPhone")
-        .value
-        .trim(),
+      newPhone.value.trim(),
 
     notes:
-      document
-        .getElementById("newNotes")
-        .value
-        .trim(),
+      newNotes.value.trim(),
+
+    accountType:accountType,
 
     created:Date.now()
 
@@ -529,97 +636,207 @@ function saveTrader(){
 
   db.traders.unshift(t);
 
+  const opening =
+    Number(newAmount.value);
+
+  if(opening > 0){
+
+    db.entries.push({
+
+      id:uid(),
+
+      tid:t.id,
+
+      type:"charge",
+
+      amount:opening,
+
+      note:"رصيد افتتاحي",
+
+      date:today(),
+
+      time:Date.now()
+
+    });
+
+  }
+
   save();
 
   openAccount(t.id);
 
 }
 
+
 function renderTraders(){
 
   const q =
-    document
-      .getElementById("search")
-      .value
-      .trim()
-      .toLowerCase();
+    search.value
+    .trim()
+    .toLowerCase();
 
   const list =
     db.traders.filter(
       t =>
-        (
-          t.name +
-          " " +
-          (t.phone || "")
-        )
-        .toLowerCase()
-        .includes(q)
+      (
+        t.name +
+        " " +
+        (t.phone || "")
+      )
+      .toLowerCase()
+      .includes(q)
     );
 
-  const debit = debitTotal();
+  const receive =
+    list.filter(
+      t => t.accountType === "receive"
+    );
 
-  const credit = creditTotal();
+  const pay =
+    list.filter(
+      t => t.accountType === "pay"
+    );
 
-  document
-    .getElementById("traderCount")
-    .textContent =
-    db.traders.length;
+  const none =
+    list.filter(
+      t => !t.accountType
+    );
 
-  document
-    .getElementById("totalDebit")
-    .textContent =
-    money(debit);
 
-  document
-    .getElementById("totalCredit")
-    .textContent =
-    money(credit);
+  const allReceive =
+    db.traders.filter(
+      t => t.accountType === "receive"
+    );
 
-  document
-    .getElementById("netBalance")
-    .textContent =
-    money(debit - credit);
+  const allPay =
+    db.traders.filter(
+      t => t.accountType === "pay"
+    );
 
-  document
-    .getElementById("traderList")
-    .innerHTML =
-    list.length
-    ?
-    list.map(
-      t => `
 
-        <div
-          class="trader"
-          onclick="openAccount('${t.id}')"
-        >
+  countReceive.textContent =
+    allReceive.length;
 
-          <div class="trader-head">
+  countPay.textContent =
+    allPay.length;
 
-            <b>${t.name}</b>
 
-            <span class="balance">
-              ${money(balance(t.id))}
-            </span>
+  totalReceive.textContent =
+    money(
+      allReceive.reduce(
+        (sum,t) =>
+        sum + Math.max(
+          0,
+          remaining(t.id)
+        ),
+        0
+      )
+    );
 
-          </div>
 
-          <div class="muted">
-            ${t.phone || "بدون رقم"}
-          </div>
+  totalPay.textContent =
+    money(
+      allPay.reduce(
+        (sum,t) =>
+        sum + Math.max(
+          0,
+          remaining(t.id)
+        ),
+        0
+      )
+    );
+
+
+  traderList.innerHTML =
+
+    sectionHtml(
+      "إلي عند التجار",
+      receive,
+      "receive"
+    )
+
+    +
+
+    sectionHtml(
+      "للتجار عندي",
+      pay,
+      "pay"
+    )
+
+    +
+
+    (
+      none.length
+      ?
+      sectionHtml(
+        "حدد نوع الحساب",
+        none,
+        "none"
+      )
+      :
+      ""
+    );
+
+}
+
+
+function sectionHtml(title,list,kind){
+
+  if(!list.length){
+    return "";
+  }
+
+  return `
+
+    <div class="section-title">
+      ${title}
+    </div>
+
+    ${list.map(t => `
+
+      <div
+        class="trader"
+        onclick="openAccount('${t.id}')"
+      >
+
+        <div class="trader-head">
+
+          <b>
+            ${esc(t.name)}
+          </b>
+
+          <span class="balance">
+            ${money(remaining(t.id))}
+          </span>
 
         </div>
 
-      `
-    ).join("")
-    :
-    `
-      <div class="muted"
-      style="padding:18px;text-align:center">
-        لا يوجد تجار
+        <div class="muted">
+          ${esc(t.phone || "بدون رقم")}
+        </div>
+
+        <span class="tag ${kind}">
+
+          ${
+            kind === "receive"
+            ? "لي عنده"
+            :
+            kind === "pay"
+            ? "له عندي"
+            :
+            "حدد النوع"
+          }
+
+        </span>
+
       </div>
-    `;
+
+    `).join("")}
+
+  `;
 
 }
+
 
 function openAccount(tid){
 
@@ -630,26 +847,50 @@ function openAccount(tid){
       x => x.id === tid
     );
 
-  if(!t) return;
+  if(!t){
+    return;
+  }
 
-  document
-    .getElementById("accountName")
-    .textContent =
+  accountName.textContent =
     t.name;
 
-  document
-    .getElementById("amount")
-    .value = "";
+  accountType.value =
+    t.accountType || "";
 
-  document
-    .getElementById("entryNote")
-    .value = "";
+  amount.value = "";
+
+  entryDate.value =
+    today();
+
+  entryNote.value = "";
 
   renderAccount();
 
   show("accountScreen");
 
 }
+
+
+function changeType(){
+
+  const t =
+    db.traders.find(
+      x => x.id === currentTrader
+    );
+
+  if(!t){
+    return;
+  }
+
+  t.accountType =
+    accountType.value;
+
+  save();
+
+  renderAccount();
+
+}
+
 
 function renderAccount(){
 
@@ -658,92 +899,95 @@ function renderAccount(){
       x => x.id === currentTrader
     );
 
-  if(!t) return;
+  if(!t){
+    return;
+  }
 
-  const debit =
-    debitTotal(t.id);
 
-  const credit =
-    creditTotal(t.id);
+  if(t.accountType === "pay"){
 
-  document
-    .getElementById("accountDebit")
-    .textContent =
-    money(debit);
+    balanceLabel.textContent =
+      "المتبقي للتاجر عندي";
 
-  document
-    .getElementById("accountCredit")
-    .textContent =
-    money(credit);
+  }else if(
+    t.accountType === "receive"
+  ){
 
-  document
-    .getElementById("accountBalance")
-    .textContent =
-    money(debit - credit);
+    balanceLabel.textContent =
+      "المتبقي إلي عنده";
 
-  const entries =
-    db.entries
-      .filter(
-        e => e.tid === t.id
-      )
-      .sort(
-        (a,b) =>
-          b.time - a.time
-      );
+  }else{
 
-  document
-    .getElementById("entries")
-    .innerHTML =
-    entries.length
+    balanceLabel.textContent =
+      "المبلغ المتبقي";
+
+  }
+
+
+  accountBalance.textContent =
+    money(
+      remaining(t.id)
+    );
+
+
+  const es =
+    traderEntries(t.id)
+    .sort(
+      (a,b) =>
+      (b.time || 0) -
+      (a.time || 0)
+    );
+
+
+  entries.innerHTML =
+    es.length
     ?
-    entries.map(
-      e => `
+    es.map(e => `
 
-        <div class="entry">
+      <div class="entry">
 
-          <div class="entry-top">
+        <div class="entry-top">
 
-            <b class="${
-              e.type === "debt"
-              ? "debit"
-              : "credit"
-            }">
-
-              ${
-                e.type === "debt"
-                ? "مدين"
-                : "دائن"
-              }
-
-            </b>
-
-            <b>
-              ${money(e.amount)}
-            </b>
-
-          </div>
-
-          <div class="muted">
-
+          <b>
             ${
-              new Date(
-                e.time
-              )
-              .toLocaleString("ar-EG")
+              isCharge(e)
+              ? "إضافة مبلغ"
+              : "دفعة"
             }
+          </b>
 
-            ${
-              e.note
-              ? " — " + e.note
-              : ""
-            }
-
-          </div>
+          <b>
+            ${money(e.amount)}
+          </b>
 
         </div>
 
-      `
-    ).join("")
+        <div class="muted">
+
+          ${
+            esc(
+              e.date ||
+              new Date(
+                e.time || Date.now()
+              )
+              .toISOString()
+              .slice(0,10)
+            )
+          }
+
+          ${
+            e.note
+            ?
+            " — " + esc(e.note)
+            :
+            ""
+          }
+
+        </div>
+
+      </div>
+
+    `).join("")
     :
     `
       <div class="muted">
@@ -753,21 +997,39 @@ function renderAccount(){
 
 }
 
+
 function addEntry(type){
 
-  const amount =
-    Number(
-      document
-        .getElementById("amount")
-        .value
+  const t =
+    db.traders.find(
+      x => x.id === currentTrader
     );
 
-  if(!(amount > 0)){
+  if(!t){
+    return;
+  }
+
+  if(!t.accountType){
+
+    alert(
+      "حدد أولاً: لي عنده أو له عندي"
+    );
+
+    return;
+  }
+
+
+  const a =
+    Number(amount.value);
+
+
+  if(!(a > 0)){
 
     alert("اكتب المبلغ");
     return;
 
   }
+
 
   db.entries.push({
 
@@ -777,50 +1039,151 @@ function addEntry(type){
 
     type:type,
 
-    amount:amount,
+    amount:a,
 
     note:
-      document
-        .getElementById("entryNote")
-        .value
-        .trim(),
+      entryNote.value.trim(),
+
+    date:
+      entryDate.value ||
+      today(),
 
     time:Date.now()
 
   });
 
+
   save();
 
-  document
-    .getElementById("amount")
-    .value = "";
 
-  document
-    .getElementById("entryNote")
-    .value = "";
+  amount.value = "";
+
+  entryNote.value = "";
+
+  entryDate.value =
+    today();
+
 
   renderAccount();
 
 }
 
+
+function exportBackup(){
+
+  const blob =
+    new Blob(
+      [
+        JSON.stringify(
+          db,
+          null,
+          2
+        )
+      ],
+      {
+        type:"application/json"
+      }
+    );
+
+
+  const a =
+    document.createElement("a");
+
+  a.href =
+    URL.createObjectURL(blob);
+
+  a.download =
+    "dadoush-backup.json";
+
+  a.click();
+
+
+  setTimeout(
+    () =>
+    URL.revokeObjectURL(
+      a.href
+    ),
+    1000
+  );
+
+}
+
+
+function importBackup(ev){
+
+  const f =
+    ev.target.files[0];
+
+  if(!f){
+    return;
+  }
+
+  const r =
+    new FileReader();
+
+
+  r.onload = () => {
+
+    try{
+
+      const x =
+        JSON.parse(r.result);
+
+
+      if(
+        !Array.isArray(x.traders) ||
+        !Array.isArray(x.entries)
+      ){
+
+        throw new Error();
+
+      }
+
+
+      db = x;
+
+      save();
+
+      renderTraders();
+
+      alert(
+        "تم استرجاع البيانات"
+      );
+
+    }catch(e){
+
+      alert(
+        "ملف النسخة الاحتياطية غير صالح"
+      );
+
+    }
+
+  };
+
+
+  r.readAsText(f);
+
+  ev.target.value = "";
+
+}
+
+
 load();
 
 renderTraders();
 
-if("serviceWorker" in navigator){
+
+if(
+  "serviceWorker" in navigator
+){
 
   window.addEventListener(
     "load",
-    function(){
-
-      navigator
-        .serviceWorker
-        .register("./sw.js")
-        .catch(
-          function(){}
-        );
-
-    }
+    () =>
+    navigator
+      .serviceWorker
+      .register("./sw.js")
+      .catch(() => {})
   );
 
 }
