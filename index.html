@@ -1072,7 +1072,7 @@ function addEntry(type){
 
   if(!confirm("متأكد بدك تحذف هذه الحركة؟")) return;
 
-  t.entries = (t.entries || []).filter(e => e.id !== id);
+db.entries = db.entries.filter(e => e.id !== id);
 
   save();
   renderAccount();
