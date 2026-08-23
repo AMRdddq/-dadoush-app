@@ -380,7 +380,10 @@ button{
     type="number"
     inputmode="decimal"
     placeholder="اكتب المبلغ">
-
+<select id="currency">
+  <option value="ILS">₪ شيكل</option>
+  <option value="USD">$ دولار</option>
+</select>
     <input id="entryDate"
     type="date"
     style="margin-top:8px">
@@ -522,9 +525,8 @@ function isCharge(e){
 }
 
 
-function remaining(tid){
-
-  return traderEntries(tid).reduce(
+function remaining(tid, currencyCode){
+return traderEntries(tid).filter(e => (e.currency || "ILS") === currencyCode).reduce(
     (sum,e) => {
 
       if(isCharge(e)){
@@ -1040,7 +1042,7 @@ function addEntry(type){
     type:type,
 
     amount:a,
-
+currency: currency.value,
     note:
       entryNote.value.trim(),
 
