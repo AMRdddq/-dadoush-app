@@ -926,10 +926,13 @@ function renderAccount(){
   }
 
 
-  accountBalance.textContent =
-    money(
-      remaining(t.id)
-    );
+const cur = currency.value || "ILS";
+const bal = remaining(t.id, cur);
+accountBalance.textContent =
+  (cur === "USD" ? "$ " : "₪ ") + Number(bal).toFixed(2);
+    
+      
+  
 
 
   const es =
