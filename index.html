@@ -1061,7 +1061,17 @@ currency: currency.value,
 
 
   save();
+if(type !== "charge" && type !== "debt" && t.phone){
+  const cur = currency.value || "ILS";
+  const symbol = cur === "USD" ? "$" : "₪";
+  const left = remaining(t.id, cur);
 
+  const msg =
+    `تم دفع مبلغ ${a.toLocaleString()} ${symbol}، والمتبقي ${Number(left).toLocaleString()} ${symbol}.`;
+
+  window.location.href =
+    `sms:${t.phone}?body=${encodeURIComponent(msg)}`;
+}
 
   amount.value = "";
 
