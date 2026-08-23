@@ -809,7 +809,7 @@ function sectionHtml(title,list,kind){
           </b>
 
           <span class="balance">
-            ${money(remaining(t.id))}
+            ₪ ${Number(remaining(t.id,"ILS")).toLocaleString()} / $ ${Number(remaining(t.id,"USD")).toLocaleString()}
           </span>
 
         </div>
