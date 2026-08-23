@@ -525,7 +525,7 @@ function isCharge(e){
 }
 
 
-function remaining(tid, currencyCode){
+function remaining(tid, currencyCode = "ILS"){
 return traderEntries(tid).filter(e => (e.currency || "ILS") === currencyCode).reduce(
     (sum,e) => {
 
