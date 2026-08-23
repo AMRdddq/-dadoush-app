@@ -373,7 +373,28 @@ button{
     <small id="balanceLabel">المبلغ المتبقي</small>
     <b id="accountBalance">0.00 ₪</b>
   </div>
+<div class="card">
 
+  <label>رقم الهاتف</label>
+  <input id="traderPhone" type="tel" placeholder="رقم الهاتف">
+
+  <div class="row" style="margin-top:10px">
+    <button class="light full" onclick="saveTraderInfo()">
+      ✏️ حفظ بيانات التاجر
+    </button>
+  </div>
+
+  <label style="margin-top:12px">
+    <input id="smsToggle" type="checkbox" onchange="saveMessageSettings()">
+    تفعيل رسائل SMS
+  </label>
+
+  <label style="margin-top:10px">
+    <input id="whatsappToggle" type="checkbox" onchange="saveMessageSettings()">
+    تفعيل رسائل واتساب
+  </label>
+
+</div>
   <div class="card">
 
     <input id="amount"
@@ -853,7 +874,11 @@ function openAccount(tid){
   if(!t){
     return;
   }
-
+if(t.smsEnabled === undefined) t.smsEnabled = true;
+if(t.whatsappEnabled === undefined) t.whatsappEnabled = false;
+traderPhone.value = t.phone || "";
+smsToggle.checked = t.smsEnabled;
+whatsappToggle.checked = t.whatsappEnabled;
   accountName.textContent =
     t.name;
 
