@@ -937,6 +937,7 @@ accountBalance.textContent =
 
   const es =
     traderEntries(t.id)
+    .filter(e => (e.currency || "ILS") === cur)
     .sort(
       (a,b) =>
       (b.time || 0) -
@@ -962,7 +963,7 @@ accountBalance.textContent =
           </b>
 
           <b>
-            ${money(e.amount)}
+            ${(e.currency || "ILS") === "USD" ? "$ " : "₪ "}${Number(e.amount).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
           </b>
 
         </div>
