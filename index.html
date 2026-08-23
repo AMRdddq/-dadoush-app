@@ -723,30 +723,31 @@ function renderTraders(){
     allPay.length;
 
 
-  totalReceive.textContent =
-    money(
-      allReceive.reduce(
-        (sum,t) =>
-        sum + Math.max(
-          0,
-          remaining(t.id)
-        ),
-        0
-      )
-    );
+const receiveILS = allReceive.reduce(
+  (sum,t) => sum + Math.max(0, remaining(t.id, "ILS")),
+  0
+);
 
+const receiveUSD = allReceive.reduce(
+  (sum,t) => sum + Math.max(0, remaining(t.id, "USD")),
+  0
+);
 
-  totalPay.textContent =
-    money(
-      allPay.reduce(
-        (sum,t) =>
-        sum + Math.max(
-          0,
-          remaining(t.id)
-        ),
-        0
-      )
-    );
+const payILS = allPay.reduce(
+  (sum,t) => sum + Math.max(0, remaining(t.id, "ILS")),
+  0
+);
+
+const payUSD = allPay.reduce(
+  (sum,t) => sum + Math.max(0, remaining(t.id, "USD")),
+  0
+);
+
+totalReceive.textContent =
+  `₪ ${receiveILS.toLocaleString()} / $ ${receiveUSD.toLocaleString()}`;
+
+totalPay.textContent =
+  `₪ ${payILS.toLocaleString()} / $ ${payUSD.toLocaleString()}`;
 
 
   traderList.innerHTML =
